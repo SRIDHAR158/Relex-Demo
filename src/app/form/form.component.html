@@ -1,0 +1,50 @@
+<!-- <mat-card>
+    <mat-card-title>Create Employee Form!</mat-card-title>
+    <mat-card-content style="padding-top: 20px;"> -->
+        <form [formGroup]="addUserForm" (submit)="createEmployee()">
+
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Employee Name:</mat-label>
+                    <input matInput placeholder="John" formControlName="name">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-error
+                        *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].hasError('required')">
+                        Employee Name is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].hasError('minlength')">
+                        Employee Name should have minimum of 4 characters
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <p> </p>
+
+            <div class="example-container">
+                <mat-label>Address:</mat-label>
+                <div *ngFor="let address of addUserForm.controls.address['controls']; let i=index"
+                    [formGroup]="address">
+                    form No : {{i}}
+                    <!-- <mat-form-field appearance="outline"> -->
+                        <label>Street</label>
+                        <input formControlName="street"><br>
+                    <!-- </mat-form-field> -->
+                    <!-- <mat-form-field appearance="outline"> -->
+                        <label>City</label>
+                        <input formControlName="city"><br>
+                    <!-- </mat-form-field> -->
+                </div>
+
+            </div>
+
+            <div class="example-container">
+                <button type="submit" class="btn btn-primary"  (click)="addAddress()">Add new address</button>
+            </div>
+
+        </form>
+
+    <!-- </mat-card-content>
+
+</mat-card> -->

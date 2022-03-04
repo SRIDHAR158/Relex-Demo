@@ -1,0 +1,32 @@
+<div [formGroup]="addUserForm">
+	<div>
+        <label>Name:</label><br>
+		<input matInput formControlName="name" placeholder="john">
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="addNewAddressGroup()">Add</button>
+  </div>
+
+    <div *ngFor="let addressGroup of addUserForm.controls.address['controls'];let i = index" [formGroup]="addressGroup">
+
+      form No : {{i}}
+        <div>
+          street <input formControlName="street">
+        </div>
+
+         <div>
+          city <input formControlName="city">
+        </div>
+        <button mat-raised-button color="warn" (click)="deleteAddressGroup(i)" >Delete - {{i}}</button>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+result <br>
+
+<pre>
+{{addUserForm.value | json}}
+</pre>

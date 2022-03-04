@@ -1,0 +1,71 @@
+<mat-card class="p-0">
+    <mat-card-content class="p-0">
+        <ngx-datatable
+        class="material ml-0 mr-0"
+        [rows]="items"
+        [columnMode]="'flex'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [limit]= "5"
+        [rowHeight]="'auto'">
+        
+        <ngx-datatable-column name="ID" [flexGrow]="1">
+            <ng-template let-row = "row" ngx-datatable-cell-template>
+                {{ row.itrayId }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Tray Number" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.itrayId }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Tray Type" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.vtrayTypeCode}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Tray Color" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.vtrayColour }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Weight" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.ntrayWeight }}
+            </ng-template>
+          </ngx-datatable-column>
+
+        <ngx-datatable-column name="Created By" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.icreatedBy }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Modified By" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.imodifiedBy }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Created Date" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.tcreatedDate | date }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Modified Date" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.tmodifiedDate  | date }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Status" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              <mat-slide-toggle [color]="'primary'" [checked]="row?.istatus === 1" > </mat-slide-toggle>
+            <!-- <mat-chip mat-sm-chip [color]="'primary'" [selected]="row.isActive">{{row.isActive ? 'active' : 'inactive'}}</mat-chip> -->
+          </ng-template>
+        </ngx-datatable-column>
+
+        </ngx-datatable>
+    </mat-card-content>
+
+</mat-card>
